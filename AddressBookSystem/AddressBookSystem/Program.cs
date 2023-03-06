@@ -26,40 +26,23 @@
 
             AddressBookMain addressBookMain = new AddressBookMain();
 
-            AddressBookMain.AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+            addressBookMain.AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email);
             //Console.ReadLine();
 
             
             //addressBookMain.AddContact("prachi", "kale", "bhf", "Nagpur", "MH", 441804, 01234456789, "abc@gmail.com");
             //InputToCreateList(addressBookMain);
             addressBookMain.PrintList();
+            Console.WriteLine("-----------------------------------------");
+            Console.WriteLine("Enter first name of contact to be edited");
+            string firstNameEditedContact = Console.ReadLine();
+            Console.WriteLine("Enter last name of contact to be edited");
+            string lastNameEditedContact = Console.ReadLine();
+
+            addressBookMain.Edit(firstNameEditedContact, lastNameEditedContact);
             Console.ReadLine();
         }
 
-       /*public static void InputToCreateList()
-        {
        
-            Console.WriteLine("Enter the First Name");
-            string firstName = Console.ReadLine();
-            Console.WriteLine("Enter the Last Name");
-            string lastName = Console.ReadLine();
-            Console.WriteLine("Enter the Address");
-            string address = Console.ReadLine();
-            Console.WriteLine("Enter the City");
-            string city = Console.ReadLine();
-            Console.WriteLine("Enter the State");
-            string state = Console.ReadLine();
-            Console.WriteLine("Enter Zip");
-            int zip = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter the Phone Number");
-            int phoneNumber = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter the Email");
-            string email = Console.ReadLine();
-
-            //addressbookMain.AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email);
-            Console.ReadLine() ;
-
-
-         }*/
     }
 }
