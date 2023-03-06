@@ -158,5 +158,28 @@ namespace AddressBookSystem
 
         }
 
+        // method for delete contact
+        public void DeleteContact(string firstName, string lastName)
+        {
+            Contact deletedContact = null;
+            foreach(Contact contact in contactList) 
+            {
+                if(contact.firstName == firstName && contact.lastName ==lastName) 
+                {
+                    deletedContact= contact;
+                    this.contactList.Remove(contact);
+                    break;
+                }
+            }
+            if(deletedContact == null)
+            {
+                Console.WriteLine("No such contact exist");
+            }
+            else
+            {
+                Console.WriteLine("deletion done");
+            }
+        }
+
     }
 }
