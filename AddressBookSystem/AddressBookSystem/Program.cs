@@ -19,7 +19,8 @@
            
             addressBookMain.PrintList();
             Console.WriteLine("-----------------------------------------");
-            Console.WriteLine("Press 1 for Edit Contact, \n Press 2 for delete contact ");
+           
+            Console.WriteLine("Press 1 for Edit Contact, \n Press 2 for delete contact, \n press 3 for searching ");
             int choice = Convert.ToInt32(Console.ReadLine());
 
             switch(choice)
@@ -38,6 +39,9 @@
                     Console.WriteLine("Enter last name of contact to be deleted");
                     string lastNameDeletedContact = Console.ReadLine();
                     addressBookMain.DeleteContact(firstNameDeletedContact, lastNameDeletedContact);
+                    break;
+                case 3:
+                    addressBookMain.Search();
                     break;
                 default:
                     Console.WriteLine("Enetr valid choice");

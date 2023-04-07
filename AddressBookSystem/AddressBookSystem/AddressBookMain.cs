@@ -185,17 +185,31 @@ namespace AddressBookSystem
                 Console.WriteLine("deletion done");
             }
         }
-        public void CheckDuplicates(string firstName, string lastName)
+        
+        public void Search()
         {
-            if(Contact.Contains(firstName))
+            Console.WriteLine("Enter your choice for search");
+            Console.WriteLine("Press 1 for city \n Press 2 for state");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch(choice)
             {
-                Console.WriteLine("cannot alowed duplicated contact");
-            }
-            else
-            {
-                ContactList.Add(Contact);
+                case 1:
+                   Console.WriteLine("Enetr your city Name");
+                    string NametoSearchCity = Console.ReadLine();
+                    foreach (Contact detail in this.ContactList.FindAll(e => e.state == NametoSearchCity))
+                    {
+                        Console.WriteLine("city of:" +detail.firstName + detail.lastName);
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("Enetr your State Name");
+                    string NametoSearchState = Console.ReadLine();
+                    foreach (Contact detail in this.ContactList.FindAll(e => e.state == NametoSearchState))
+                    {
+                        Console.WriteLine("city of:" + detail.firstName + detail.lastName);
+                    }
+                    break;
             }
         }
-
     }
 }
