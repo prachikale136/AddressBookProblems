@@ -236,5 +236,36 @@ namespace AddressBookSystem
                     break;
             }
         }
+
+        public void CountContact()
+        {
+            int count = 0;
+            Console.WriteLine("Enter choice for count");
+            Console.WriteLine("press 1 for city, \n press 2 for state");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice) 
+            {
+                case 1:
+                    Console.WriteLine("Enetr your city Name");
+                    string city = Console.ReadLine();
+                    foreach (Contact detail in this.ContactList.FindAll(e => e.city == city))
+                    {
+                        //Console.WriteLine("View Person Name:" + detail.firstName + detail.lastName);
+                        count = this.ContactList.Count(); 
+                    }
+                    Console.WriteLine(count);
+                    break;
+                case 2:
+                    Console.WriteLine("Enetr your state Name");
+                    string state = Console.ReadLine();
+                    foreach (Contact detail in this.ContactList.FindAll(e => e.state == state))
+                    {
+                        //Console.WriteLine("View Person Name:" + detail.firstName + detail.lastName);
+                        count = this.ContactList.Count();
+                    }
+                    Console.WriteLine(count);
+                    break;
+            }
+        }
     }
 }
