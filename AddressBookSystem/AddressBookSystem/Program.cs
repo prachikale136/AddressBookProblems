@@ -16,6 +16,7 @@
                 addressBookMain.AddContact();
             
             }
+           
             addressBookMain.PrintList();
             Console.WriteLine("-----------------------------------------");
             Console.WriteLine("Press 1 for Edit Contact, \n Press 2 for delete contact ");

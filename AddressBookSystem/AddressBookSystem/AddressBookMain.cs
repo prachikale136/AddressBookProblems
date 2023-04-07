@@ -13,8 +13,6 @@ namespace AddressBookSystem
         public void AddContact()
         {
             Contact contact = new Contact();  // create object of contact class
-
-
             Console.WriteLine("---------------------------------------------");
             Console.WriteLine("Enter first name");
             contact.firstName = Console.ReadLine();
@@ -40,6 +38,7 @@ namespace AddressBookSystem
 
          public void PrintList()
         {
+           // Console.WriteLine(checkIn);
             Console.WriteLine("---------------------------------------------------");
             //using for each loop caliinf the varilabe
             foreach (Contact contact in ContactList)
@@ -184,6 +183,17 @@ namespace AddressBookSystem
             else
             {
                 Console.WriteLine("deletion done");
+            }
+        }
+        public void CheckDuplicates(string firstName, string lastName)
+        {
+            if(Contact.Contains(firstName))
+            {
+                Console.WriteLine("cannot alowed duplicated contact");
+            }
+            else
+            {
+                ContactList.Add(Contact);
             }
         }
 
