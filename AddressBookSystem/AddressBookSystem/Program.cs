@@ -20,7 +20,7 @@
             addressBookMain.PrintList();
             Console.WriteLine("-----------------------------------------");
            
-            Console.WriteLine("Press 1 for Edit Contact, \n Press 2 for delete contact, \n press 3 for searching ");
+            Console.WriteLine("Press 1 for Edit Contact, \n Press 2 for delete contact, \n press 3 for searching, \n Press 4 for view Conatct ");
             int choice = Convert.ToInt32(Console.ReadLine());
 
             switch(choice)
@@ -42,6 +42,9 @@
                     break;
                 case 3:
                     addressBookMain.Search();
+                    break;
+                case 4:
+                    addressBookMain.ViewContact(); 
                     break;
                 default:
                     Console.WriteLine("Enetr valid choice");

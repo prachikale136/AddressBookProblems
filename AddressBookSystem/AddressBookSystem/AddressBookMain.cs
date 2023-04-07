@@ -211,5 +211,30 @@ namespace AddressBookSystem
                     break;
             }
         }
+        public void ViewContact()
+        {
+            Console.WriteLine("Enter choice to View contact");
+            Console.WriteLine("press 1 for city \n press 2 for state ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch(choice) 
+            {
+                case 1:
+                    Console.WriteLine("Enetr your city Name");
+                    string NametoSearchCity = Console.ReadLine();
+                    foreach (Contact detail in this.ContactList.FindAll(e => e.state == NametoSearchCity))
+                    {
+                        Console.WriteLine("View Person Name:" + detail.firstName + detail.lastName);
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("Enetr your State Name");
+                    string NametoSearchState = Console.ReadLine();
+                    foreach (Contact detail in this.ContactList.FindAll(e => e.state == NametoSearchState))
+                    {
+                        Console.WriteLine("city of:" + detail.firstName + detail.lastName);
+                    }
+                    break;
+            }
+        }
     }
 }
