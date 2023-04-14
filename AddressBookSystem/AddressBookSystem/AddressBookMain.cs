@@ -248,7 +248,7 @@ namespace AddressBookSystem
                 case 1:
                     Console.WriteLine("Enetr your city Name");
                     string city = Console.ReadLine();
-                    foreach (Contact detail in this.ContactList.FindAll(e => e.city == city))
+                    foreach (Contact detail in this.ContactList.FindAll (c => c.city == city))
                     {
                         //Console.WriteLine("View Person Name:" + detail.firstName + detail.lastName);
                         count = this.ContactList.Count(); 
@@ -265,6 +265,24 @@ namespace AddressBookSystem
                     }
                     Console.WriteLine(count);
                     break;
+            }
+        }
+        public void SortByPersonName()
+        {
+            List<Contact> sortByName = this.ContactList.OrderBy(e => e.firstName + e.lastName).ToList();
+            foreach (Contact contact in sortByName) 
+            {
+                Console.WriteLine("-------------------------------");
+                Console.WriteLine("First Name:" +contact.firstName);
+                Console.WriteLine("LastNAme:" + " " + contact.lastName);
+                Console.WriteLine("Address:" + " " + contact.address);
+                Console.WriteLine("City:" + " " + contact.city);
+                Console.WriteLine("State:" + " " + contact.state);
+                Console.WriteLine("zip:" + " " + contact.zip);
+                Console.WriteLine("PhoneNumber:" + " " + contact.phoneNumber);
+                Console.WriteLine("Email:" + " " + contact.email);
+
+
             }
         }
     }

@@ -19,41 +19,49 @@
            
             addressBookMain.PrintList();
             Console.WriteLine("-----------------------------------------");
-           
-            Console.WriteLine("Press 1 for Edit Contact, \n Press 2 for delete contact, \n press 3 for searching, \n Press 4 for view Conatct \n press 5 for count ");
-            int choice = Convert.ToInt32(Console.ReadLine());
-
-            switch(choice)
+            bool flag = true;
+            while(flag) 
             {
+                Console.WriteLine("Press 1 for Edit Contact, \n Press 2 for delete contact, \n press 3 for searching, \n Press 4 for view Conatct \n press 5 for count \n press 6 for sort person by name");
+                int choice = Convert.ToInt32(Console.ReadLine());
 
-                case 1:
-                    Console.WriteLine("Enter first name of contact to be edited");
-                    string firstNameEditedContact = Console.ReadLine();
-                    Console.WriteLine("Enter last name of contact to be edited");
-                    string lastNameEditedContact = Console.ReadLine();
-                    addressBookMain.Edit(firstNameEditedContact, lastNameEditedContact);
-                    break;
-                case 2:
-                    Console.WriteLine("Enetr the name of contact to be deleted");
-                    string firstNameDeletedContact = Console.ReadLine();
-                    Console.WriteLine("Enter last name of contact to be deleted");
-                    string lastNameDeletedContact = Console.ReadLine();
-                    addressBookMain.DeleteContact(firstNameDeletedContact, lastNameDeletedContact);
-                    break;
-                case 3:
-                    addressBookMain.Search();
-                    break;
-                case 4:
-                    addressBookMain.ViewContact(); 
-                    break;
-                case 5:
-                    addressBookMain.CountContact();
-                    break;
-                default:
-                    Console.WriteLine("Enetr valid choice");
-                    break;
+                switch (choice)
+                {
+
+                    case 1:
+                        Console.WriteLine("Enter first name of contact to be edited");
+                        string firstNameEditedContact = Console.ReadLine();
+                        Console.WriteLine("Enter last name of contact to be edited");
+                        string lastNameEditedContact = Console.ReadLine();
+                        addressBookMain.Edit(firstNameEditedContact, lastNameEditedContact);
+                        break;
+                    case 2:
+                        Console.WriteLine("Enetr the name of contact to be deleted");
+                        string firstNameDeletedContact = Console.ReadLine();
+                        Console.WriteLine("Enter last name of contact to be deleted");
+                        string lastNameDeletedContact = Console.ReadLine();
+                        addressBookMain.DeleteContact(firstNameDeletedContact, lastNameDeletedContact);
+                        break;
+                    case 3:
+                        addressBookMain.Search();
+                        break;
+                    case 4:
+                        addressBookMain.ViewContact();
+                        break;
+                    case 5:
+                        addressBookMain.CountContact();
+                        break;
+                    case 6:
+                        addressBookMain.SortByPersonName();
+                        break;
+
+                    default:
+                        flag= false;
+                        break;
+                }
+                Console.ReadLine();
             }
-            Console.ReadLine();
+            
         }
         
     }
