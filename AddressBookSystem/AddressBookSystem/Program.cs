@@ -4,10 +4,10 @@
     {
         static void Main(string[] args)
         {
-
+            string path = @"D:\Assignment\AddressBookProblems\AddressBookSystem\AddressBookSystem\file.txt";
             Console.WriteLine("Welcome to the address Book System Problem");
             AddressBookMain addressBookMain = new AddressBookMain();
-
+            PersonContactFile personContactFile = new PersonContactFile();
             Console.WriteLine("Enetr how many contact you want to add");
             int number = Convert.ToInt32(Console.ReadLine());
 
@@ -22,9 +22,10 @@
             bool flag = true;
             while(flag) 
             {
-                Console.WriteLine("Press 1 for Edit Contact, \n Press 2 for delete contact, \n press 3 for searching, \n Press 4 for view Conatct \n press 5 for count \n press 6 for sort person by name");
+                Console.WriteLine("Press 1 for Edit Contact, \n Press 2 for delete contact, \n press 3 for searching, \n Press 4 for view Conatct \n press 5 for count \n press 6 for sort person by name \n press 7 for file exist or not \n press 8 for write data into file \n press 9 for read data from file");
                 int choice = Convert.ToInt32(Console.ReadLine());
 
+                List<Contact> ContactList = null;
                 switch (choice)
                 {
 
@@ -54,6 +55,16 @@
                     case 6:
                         addressBookMain.SortByPersonName();
                         break;
+                    case 7:
+                        personContactFile.FileExistOrNot(path);
+                        break;
+                    case 8:
+                        addressBookMain.WriteContactIntoFile(ContactList);
+                        break;
+                    case 9:
+                        addressBookMain.ReadContactFromFile(ContactList);
+                        break;
+
 
                     default:
                         flag= false;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -284,6 +285,33 @@ namespace AddressBookSystem
 
 
             }
+        }
+        public void WriteContactIntoFile(List<Contact> contacts)
+        {
+            string path = @"D:\Assignment\AddressBookProblems\AddressBookSystem\AddressBookSystem\file.txt";
+            StreamWriter stream = new StreamWriter(path);
+            foreach(Contact contact in ContactList)
+            {
+                stream.WriteLine("First Name :" + contact.firstName);
+                stream.WriteLine("Last Name :" + contact.lastName);
+                stream.WriteLine("Address:" + " " + contact.address);
+                stream.WriteLine("City:" + " " + contact.city);
+                stream.WriteLine("State:" + " " + contact.state);
+                stream.WriteLine("zip:" + " " + contact.zip);
+                stream.WriteLine("PhoneNumber:" + " " + contact.phoneNumber);
+                stream.WriteLine("Email:" + " " + contact.email);
+                //stream.WriteLine("State :" + contact.firstName);
+                stream.WriteLine("\n");
+            }
+            stream.Close();
+            Console.WriteLine(File.ReadAllText(path));
+        }
+       public void ReadContactFromFile(List<Contact> contacts)
+        {
+            string path = @"D:\Assignment\AddressBookProblems\AddressBookSystem\AddressBookSystem\file.txt";
+            StreamReader stream = new StreamReader(path);
+            Console.WriteLine(stream.ReadToEnd());
+            stream.Close();
         }
     }
 }
